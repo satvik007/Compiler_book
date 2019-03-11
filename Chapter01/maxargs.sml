@@ -30,6 +30,7 @@ fun maxargs x =
         and expmaxargs y = 
             case y of 
                 EseqExp(a, b) => stmmaxargs(a)
+                | OpExp (a, b, c) => max (expmaxargs a, expmaxargs c)
                 | _ => 0
         and openup y = 
             case y of 
